@@ -24,7 +24,8 @@ class ContestData:
         converted_date=datetime.fromisoformat(iso_date) 
         #print(converted_date)
         difference=(converted_date-datetime.utcnow().replace(tzinfo=converted_date.tzinfo) )
-        return str(int(difference.total_seconds()//3600))+' hours'
+#         return str(int(difference.total_seconds()//3600))+' hours'
+        return time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(difference.total_seconds()))
 
     def check_output(self):#checking the list of contests for correct output(at the end of the program)
         for i in self.contest_list.values():
